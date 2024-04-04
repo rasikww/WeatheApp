@@ -40,10 +40,13 @@ enteredCity.addEventListener("keypress", function(event) {
   });
 
 async function eventProcess(){
-    const city = enteredCity.value;
+    let city = enteredCity.value;
+    const letter1=city.charAt(0).toUpperCase();
+    city = letter1+city.slice(1);
     if(city){
         try {
             const weatherData= await getWeatherData(city);
+            console.log(weatherData);
             topic.innerHTML = weatherData.location.name;
             countryName.innerHTML = weatherData.location.country;
             temperature.innerHTML = weatherData.current.temp_c+" &deg;C";
@@ -57,6 +60,7 @@ async function eventProcess(){
             countryName.style.display = "flex";
             currentWeatherCard.style.display = "flex";
             
+            displayForecast(weatherData);
             
         } catch (error) {
             console.error(error);
@@ -70,6 +74,18 @@ async function eventProcess(){
     }
 }
 
+function displayForecast(weatherData){
+    let forecastArray = weatherData.forecast.forecastday;
+    console.log(forecastArray)
+    for (let i = 0; i < forecastArray.length; i++) {
+        let element = forecastArray[i];
+        document.getElementById(`date${i}`).innerHTML = element.date;
+        document.getElementById(`temp${i}`).innerHTML = element.day.avgtemp_c+" &deg;C";
+        document.getElementById(`weatherIcon${i}`).src = element.day.condition.icon;
+        document.getElementById(`cndTxt${i}`).innerHTML = element.day.condition.text;
+    }
+    document.getElementById("forecast").style.display = "flex";
+}
 
 
 function showError(messege){
@@ -80,7 +96,7 @@ function showError(messege){
 }
 
 async function getWeatherData(city){
-    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`;
     const response = await fetch(apiUrl);
     
     if(!response.ok){
@@ -95,3 +111,4 @@ async function getWeatherData(city){
 //username=last_samurai
 //http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=100&appid=85dc2e01820de476ee29dd3a2a5e19c1
 //http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=100&appid=e3598f41ac5f35bfa9efa406163907fb
+// https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no

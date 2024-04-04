@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Info</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="regionSelection">
         <!-- Select a Country: 
@@ -39,11 +41,86 @@
             </div>
         </div>
     </div>
-    <div class="forecast">
-
+    <div class="forecast" id="forecast">
+        <h3 id="forecastHeading">Forecast for next 3 days :</h3>
+        <div class="forecastDay">
+            
+            <div class="dayGroup">
+                <div class="smallCard">
+                    <p id="date0">date</p>
+                    <h3 id="temp0">28 &deg;C</h3>
+                    <img id="weatherIcon0" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p id="cndTxt0">sunny</p>
+                </div>
+                <!-- <div class="smallCard" id="day1">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day2">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day3">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div> -->
+            </div>
+           
+            <div class="dayGroup">
+                <div class="smallCard">
+                    <p id="date1">date</p>
+                    <h3 id="temp1">28 &deg;C</h3>
+                    <img id="weatherIcon1" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p id="cndTxt1">sunny</p>
+                </div>
+                <!-- <div class="smallCard" id="day1">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day2">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day3">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div> -->
+            </div>
+            
+            <div class="dayGroup">
+                <div class="smallCard">
+                    <p id="date2">date</p>
+                    <h3 id="temp2">28 &deg;C</h3>
+                    <img id="weatherIcon2" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p id="cndTxt2">sunny</p>
+                </div>
+                <!-- <div class="smallCard" id="day1">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day2">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div>
+                <div class="smallCard" id="day3">
+                    <h3>28 &deg;C</h3>
+                    <img id="weatherIcon" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
+                    <p>sunny</p>
+                </div> -->
+            </div>
+        </div>
     </div>
     <div class="pastWeather"></div>
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
