@@ -26,8 +26,8 @@ p{
     font-size: 1.5rem;
     margin-left: 10px;
     border-radius: 5px;
-    display: unset;
-    width: unset;
+    display: inline-flex;
+    width: 50%;
 }
 #btnGetWeather{
     font-size: 1.2rem;
