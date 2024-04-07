@@ -105,10 +105,3 @@ async function getWeatherData(city){
     return await response.json();
 }
 
-
-//https://api.weatherapi.com/v1/current.json?key=59a88b830af5455597c165218240304&q=London&aqi=yes
-//http://api.geonames.org/searchJSON?country=${Afghanistan}&featureCode=PPLC&maxRows=5&username=${last_samurai}`
-//username=last_samurai
-//http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=100&appid=85dc2e01820de476ee29dd3a2a5e19c1
-//http://api.openweathermap.org/geo/1.0/direct?q=${country}&limit=100&appid=e3598f41ac5f35bfa9efa406163907fb
-// https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no
