@@ -13,7 +13,9 @@ const countryName = document.getElementById("countryName");
 const currentWeatherCard = document.getElementById("currentWeatherCard");
 const apiKey = "59a88b830af5455597c165218240304";//weatherapi.com
 let dayNum = 1;
-
+let currentLatitude;
+let currentLongitude;
+setInitialData();
 btnGetWeather.addEventListener("click", eventProcess);
 
 enteredCity.addEventListener("keypress", function(event) {
@@ -40,8 +42,6 @@ async function eventProcess(){
         } catch (error) {
             console.error(error);
             showError("Cannot access weather data");
-            
-        
         }
 
     }else{
@@ -139,4 +139,57 @@ function getDay(dayNum){
     month = day.getMonth()+1;
     date = day.getDate();
     return `${year}-${month}-${date}`;
+}
+
+// async function getLocation() {
+//     if (navigator.geolocation) {
+//       return navigator.geolocation.getCurrentPosition( success => {
+//         currentLatitude = success.coords.latitude;
+//         currentLongitude = success.coords.longitude;
+//       }), err => window.alert("error getting location");
+//     } else {
+//       window.alert("Geolocation is not supported by this browser");
+//     }
+//   }
+
+  
+
+async function setInitialData(){
+    let locationData;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async success => {
+        currentLatitude = success.coords.latitude;
+        currentLongitude = success.coords.longitude;
+        const apiUrl = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${currentLatitude},${currentLongitude}`;
+        const response = await fetch(apiUrl);
+        console.log(response);
+        if(!response.ok){
+            showError("Error fetching location");
+        }
+        locationData = await response.json();
+        const city = locationData[0].name;
+
+    try {
+        const weatherData= await getWeatherData(city);
+        displayCurrent(weatherData);
+        displayForecast(weatherData);
+        while (dayNum<=7) {
+            const historyData= await getHistoryData(city,dayNum);
+            displayHistory(historyData,dayNum);
+            dayNum++;
+        }
+        
+    } catch (error) {
+        console.error(error);
+        showError("Cannot access weather data");
+    } 
+          
+        }), err => window.alert("error getting location");
+      } else {
+        window.alert("Geolocation is not supported by this browser");
+      }
+    console.log("second "+currentLatitude);
+    console.log(currentLongitude);
+    
+    
 }
