@@ -1,35 +1,40 @@
-body{
+/* body{
     margin: 10px;
     display: flex;
     flex-direction: column;
     background-color: hsl(196, 25%, 79%);
     align-items: center;
-}
-p{
+} */
+p {
     text-align: center;
 }
-.regionSelection{
+
+.regionSelection {
     margin-top: 100px;
     font-size: 1.5rem;
 }
-#cmbCountry{
+
+#cmbCountry {
     font-family: 'Arial';
     font-size: 1.2rem;
 }
-#cmbRegion{
+
+#cmbRegion {
     font-family: 'Arial';
     font-size: 1.2rem;
     margin-left: 10px;
 }
-#enteredCity{
+
+#enteredCity {
     font-family: 'Arial';
     font-size: 1.5rem;
     margin-left: 10px;
     border-radius: 5px;
     display: inline-flex;
-    width: 50%;
+    width: initial;
 }
-#btnGetWeather{
+
+#btnGetWeather {
     font-size: 1.2rem;
     font-family: Arial;
     font-weight: bold;
@@ -40,11 +45,13 @@ p{
     cursor: pointer;
     padding: 10px;
 }
-#btnGetWeather:hover{
+
+#btnGetWeather:hover {
     background-color: hsla(117, 70%, 41%, 0.9);
     color: aliceblue;
 }
-.currentWeatherCard{
+
+.currentWeatherCard {
     margin: 0;
     background-image: url(../img/sunny.webp);
     color: aliceblue;
@@ -55,25 +62,34 @@ p{
     display: none;
     flex-direction: column;
     box-shadow: 2px 2px 2px gray;
+    max-width: 30rem;
 }
-#currentWeatherHeading{
-    font-family:Arial, Helvetica, sans-serif
+
+#currentWeatherHeading {
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
 }
-#temperature{
+
+#temperature {
     font-size: 3rem;
 }
-#weatherIcon{
+
+#weatherIcon {
     width: 6rem;
 }
-#conditionText{
+
+#conditionText {
     font-size: 1.5rem;
     font-family: 'Cambria';
+    text-align: left;
 }
-.currentWeatherExtraInfo{
+
+.currentWeatherExtraInfo {
     display: flex;
     font-family: 'Cambria';
 }
-.subInfo{
+
+.subInfo {
     margin: 2px;
     border: solid;
     padding: 20px;
@@ -81,27 +97,33 @@ p{
     backdrop-filter: blur(5px);
     font-size: 1.2rem;
 }
-#humidity{
+
+#humidity {
     margin: 2px;
     border: solid;
     padding: 20px;
 }
-#wind{
+
+#wind {
     margin: 2px;
     border: solid;
     padding: 20px 30px;
 }
-#topic{
+
+#topic {
     display: none;
 }
-#countryName{
+
+#countryName {
     display: none;
 }
-#forecastHeading{
+
+#forecastHeading {
     color: aliceblue;
-    font-family:Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif
 }
-.forecast{
+
+.forecast {
     margin: 10px;
     background-image: url(../img/rainy.jpg);
     color: aliceblue;
@@ -112,42 +134,87 @@ p{
     display: none;
     flex-direction: column;
     box-shadow: 2px 2px 2px gray;
-    
+    min-width: 510px;
 }
-.forecastDay{
+
+.forecastDay {
     display: flex;
     /* flex-direction: column; */
 }
-.smallCard{
+
+.smallCard {
     border: solid;
+    width: auto;
 }
-.dayGroup{
+
+.dayGroup {
     display: flex;
 }
-.smallCard{
+
+.smallCard {
     margin: 2px;
     border: solid;
     padding: 20px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     font-size: 1.2rem;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-.smallCard p{
+
+.smallCard p {
     font-size: 1.5rem;
     font-family: 'Cambria';
 }
-.smallCard h3{
+
+.smallCard h3 {
     text-align: center;
 }
-.smallCard img{
+
+.smallCard img {
     width: 5rem;
 }
-/* <div class="smallCard">
-                    <p id="date2">date</p>
-                    <h3 id="temp2">28 &deg;C</h3>
-                    <img id="weatherIcon2" src="https://cdn.weatherapi.com/weather/64x64/night/116.png" alt="not available">
-                    <p id="cndTxt2">sunny</p>
-                </div> */
+
+.pastWeather {
+    border-radius: 50px;
+    /* border: solid; */
+    /* border-color: black; */
+    margin-top: 20px;
+    background-color: bisque;
+    padding-bottom: 10px;
+}
+#pastWeather{
+    display: none;
+}
+
+.carousel-indicators button[data-bs-target] {
+    background-color: black;
+}
+
+.history-card-img {
+    width: 100px;
+    display: flex;
+}
+
+.history-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-card p {
+    font-size: 1.2rem;
+    font-family: 'Cambria';
+}
+
+.carousel-control-next-icon {
+    background-image: url(../img/arrow_forward_FILL0_wght400_GRAD0_opsz24.svg);
+}
+.carousel-control-prev-icon {
+    background-image: url(../img/arrow_back_FILL0_wght400_GRAD0_opsz24.svg);
+}
