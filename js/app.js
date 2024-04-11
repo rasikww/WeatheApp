@@ -25,10 +25,11 @@ enteredCity.addEventListener("keypress", function(event) {
   });
 
 async function eventProcess(){
+    document.getElementById("spinner").style.display = "flex";
     let city = enteredCity.value;
     const letter1=city.charAt(0).toUpperCase();
     city = letter1+city.slice(1);
-    if(city){
+    if(city!=""){
         try {
             const weatherData= await getWeatherData(city);
             displayCurrent(weatherData);
@@ -40,12 +41,20 @@ async function eventProcess(){
             }
             
         } catch (error) {
-            console.error(error);
             showError("Cannot access weather data");
+            document.getElementById("currentWeatherCard").style.display = "none";
+            document.getElementById("forecast").style.display = "none";
+            document.getElementById("pastWeather").style.display = "none";
+            document.getElementById("spinner").style.display = "none";
+            dayNum = 1;
         }
 
     }else{
         showError("Enter a City Name");
+        document.getElementById("forecast").style.display = "none";
+        document.getElementById("pastWeather").style.display = "none";
+        document.getElementById("spinner").style.display = "none";
+        dayNum = 1;
     }
 }
 function displayCurrent(weatherData){
@@ -61,6 +70,7 @@ function displayCurrent(weatherData){
     topic.style.display = "flex";
     countryName.style.display = "flex";
     currentWeatherCard.style.display = "flex";
+    // document.getElementById("spinner").style.display = "none";
 }
 
 function displayForecast(weatherData){
@@ -73,6 +83,7 @@ function displayForecast(weatherData){
         document.getElementById(`cndTxt${i}`).innerHTML = element.day.condition.text;
     }
     document.getElementById("forecast").style.display = "flex";
+    // document.getElementById("spinner").style.display = "none";
 }
 
 
@@ -118,6 +129,7 @@ function displayHistory(historyData,dayNum){
     humidity.innerHTML = "Average Humidity : "+ forecastDay.day.avghumidity +" %";
 
     document.getElementById("pastWeather").style.display = "block";
+    document.getElementById("spinner").style.display = "none";
 }
 
 async function getHistoryData(city,dayNum){
@@ -162,7 +174,7 @@ async function setInitialData(){
         currentLongitude = success.coords.longitude;
         const apiUrl = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${currentLatitude},${currentLongitude}`;
         const response = await fetch(apiUrl);
-        console.log(response);
+     
         if(!response.ok){
             showError("Error fetching location");
         }
@@ -180,16 +192,17 @@ async function setInitialData(){
         }
         
     } catch (error) {
-        console.error(error);
         showError("Cannot access weather data");
+        document.getElementById("currentWeatherCard").style.display = "none";
+        document.getElementById("forecast").style.display = "none";
+        document.getElementById("pastWeather").style.display = "none";
+        document.getElementById("spinner").style.display = "none";
+        dayNum = 1;
+
     } 
           
         }), err => window.alert("error getting location");
       } else {
         window.alert("Geolocation is not supported by this browser");
       }
-    console.log("second "+currentLatitude);
-    console.log(currentLongitude);
-    
-    
 }
