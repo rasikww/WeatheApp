@@ -122,7 +122,7 @@ function displayHistory(historyData,dayNum){
 
 async function getHistoryData(city,dayNum){
     const historyDay = getDay(dayNum);
-    const apiUrl = `http://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=${historyDay}`
+    const apiUrl = `https://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=${historyDay}`
     const response = await fetch(apiUrl);
 
     if(!response.ok){
