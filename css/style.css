@@ -1,3 +1,9 @@
+body{
+    background-image: url(../img/background-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(2px);
+}
 p {
     text-align: center;
 }
@@ -46,7 +52,7 @@ p {
 }
 
 .currentWeatherCard {
-    margin: 0;
+    margin: 10px;
     background-image: url(../img/sunny.webp);
     color: aliceblue;
     background-repeat: no-repeat;
@@ -55,7 +61,7 @@ p {
     padding: 20px 50px;
     display: none;
     flex-direction: column;
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 10px 10px 10px 10px gray;
     max-width: 30rem;
 }
 
@@ -106,10 +112,12 @@ p {
 
 #topic {
     display: none;
+    backdrop-filter: blur(10px) saturate(70%);
 }
 
 #countryName {
     display: none;
+    backdrop-filter: blur(10px) saturate(70%);
 }
 
 #forecastHeading {
@@ -127,7 +135,7 @@ p {
     padding: 20px 50px;
     display: none;
     flex-direction: column;
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 10px 10px 10px 10px gray;
     min-width: 510px;
 }
 
@@ -171,12 +179,15 @@ p {
 }
 
 .pastWeather {
-    border-radius: 50px;
+    
+    border-radius: 20px;
     /* border: solid; */
     /* border-color: black; */
-    margin-top: 20px;
-    background-color: bisque;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #9aceea;
     padding-bottom: 10px;
+    box-shadow: 10px 10px 10px 10px gray;
 }
 #pastWeather{
     display: none;
